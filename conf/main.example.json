@@ -1,0 +1,8 @@
+{
+	"debug": true,
+	"cors": true,
+	"listenHost": "127.0.0.1",
+	"listenPort": 8001,
+	"googlefonts": "https://fonts.proxy.ustclug.org/",
+	"zamimg": "http://127.0.0.1:8002/"
+}
