@@ -6,6 +6,8 @@ from flask import Flask, request, Response
 import requests
 from waitress import serve
 
+from common import PostAction
+
 with open("conf/cdn.json", "rb") as configFile:
 	config = json.loads(configFile.read().decode())
 
@@ -19,7 +21,7 @@ def RpMain(path):
 	if request.referrer:
 		header['referer'] = re.sub(r'https?://[^/]*/', 'https://cn.wowhead.com/', request.referrer)
 	r = requests.get('https://wow.zamimg.com/' + path, headers = header)
-	return Response(r.content, status = r.status_code, content_type = r.headers['Content-Type'])
+	return Response(PostAction(r.content), status = r.status_code, content_type = r.headers['Content-Type'])
 
 if __name__ == "__main__":
 

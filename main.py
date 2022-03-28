@@ -7,27 +7,12 @@ from flask import Flask, request, Response
 import requests
 from waitress import serve
 
+from common import PostAction
+
 with open("conf/main.json", "rb") as configFile:
 	config = json.loads(configFile.read().decode())
 
 app = Flask(__name__)
-
-def PostAction(content: bytes) -> bytes:
-	try:
-		html = content.decode()
-	except Exception as e:
-		print(e)
-		return content
-
-	# wow.zamimg.com cdn
-	zamimg = config['cdn']
-	if zamimg:
-		html = re.sub(r'https://wow.zamimg.com/', zamimg, html)
-
-	# ajax.googleapis.com cdn
-	html = re.sub(r'https://ajax.googleapis.com/', 'https://ajax.proxy.ustclug.org/', html)
-
-	return html
 
 @app.route("/")
 def RpIndex():
