@@ -2,6 +2,5 @@
 	"debug": true,
 	"cors": true,
 	"listenHost": "127.0.0.1",
-	"listenPort": 8001,
-	"cdn": "http://127.0.0.1:8002/"
+	"listenPort": 8002
 }

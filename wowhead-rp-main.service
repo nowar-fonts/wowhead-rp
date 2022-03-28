@@ -1,0 +1,15 @@
+[Unit]
+Description=Wowhead Reverse Proxy
+After=network.target network-online.target
+
+[Service]
+Type=simple
+User=nobody
+Group=daemon
+Restart=on-failure
+RestartSec=5s
+WorkingDirectory=/opt/wowhead-rp
+ExecStart=python main.py
+
+[Install]
+WantedBy=multi-user.target

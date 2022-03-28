@@ -20,7 +20,7 @@ def PostAction(content: bytes) -> bytes:
 		return content
 
 	# wow.zamimg.com cdn
-	zamimg = config['zamimg']
+	zamimg = config['cdn']
 	if zamimg:
 		html = re.sub(r'https://wow.zamimg.com/', zamimg, html)
 
