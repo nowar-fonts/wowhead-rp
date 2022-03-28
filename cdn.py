@@ -6,7 +6,7 @@ from flask import Flask, request, Response
 import requests
 from waitress import serve
 
-with open("conf/zamimg.json", "rb") as configFile:
+with open("conf/cdn.json", "rb") as configFile:
 	config = json.loads(configFile.read().decode())
 
 app = Flask(__name__)
